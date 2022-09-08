@@ -1,6 +1,5 @@
 NAME			= fractol
-SRCS 			= test.c \
-				  fract-ol.c \
+SRCS			= fract-ol.c \
 				  fract-ol_utils.c \
 
 OBJS			= $(SRCS:.c=.o)
@@ -9,18 +8,22 @@ RM				= rm -f
 CFLAGS			= -Wall -Werror -Wextra
 FRAME_FLAGS		= -L mlx -lmlx -framework OpenGL -framework AppKit
 LIB_MLX_PATH	= ./mlx
+LIBFT_PATH		= ./libft
 
 $(NAME):
 		make -C $(LIB_MLX_PATH)
+		make -C $(LIBFT_PATH)
 		$(CC) $(CFLAGS) $(SRCS) $(FRAME_FLAGS) -o $(NAME)
 
 all: $(NAME)
 
 clean:
 		make clean -C $(LIB_MLX_PATH)
+		make clean -C $(LIBFT_PATH)
 		$(RM) $(OBJS)
 
 fclean:	clean
+		make fclean -C $(LIBFT_PATH)
 	   	$(RM) $(NAME)
 
 re: fclean all
