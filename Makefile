@@ -5,7 +5,7 @@ SRCS			= fract-ol.c \
 OBJS			= $(SRCS:.c=.o)
 CC				= cc
 RM				= rm -f
-CFLAGS			= -Wall -Werror -Wextra
+CFLAGS			= -Wall -Wextra #-Werror
 FRAME_FLAGS		= -L mlx -lmlx -framework OpenGL -framework AppKit
 LIB_MLX_PATH	= ./mlx
 LIBFT_PATH		= ./libft

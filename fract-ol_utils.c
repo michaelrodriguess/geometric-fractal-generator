@@ -1,6 +1,6 @@
 #include "fract-ol.h"
 
-int	get_iteration(t_complex c)
+int	get_iteration_mandelbrot(t_complex c)
 {
 	//Function for print if iterations is ok!
 	t_complex	z;
@@ -11,6 +11,21 @@ int	get_iteration(t_complex c)
 	z.i = 0;
 	i = 0;
 	max_iteration = 100;
+	while (value_absolute(z) <= 2)
+	{
+		if (i == max_iteration)
+			break ;
+		z = complex_add(complex_pow(z), c);
+		i++;
+	}
+	return (i);
+}
+
+int	get_iteration_julia(t_complex c, t_complex z, size_t max_iteration) 
+{
+	size_t	i;
+
+	i = 0;
 	while (value_absolute(z) <= 2)
 	{
 		if (i == max_iteration)
@@ -46,9 +61,40 @@ t_complex	complex_pow(t_complex p)
 	return(result_p);	
 }
 
+void	fractol_julia(void *mlx_ptr, void *mlx_wd, double distance_of_pixel)
+{
+	t_complex c;
+	t_complex z;
+	int	window_x;
+	int	window_y;
+
+	window_x = 0;
+	window_y = 0;
+	c.r = -0.79;
+	c.i = 0.15;
+	z.r = -2;
+	z.i = 2;
+	while (z.i >= -2)
+	{
+		while (z.r <= 2)
+		{
+			if (get_iteration_julia(c, z, 100) == 100)
+				mlx_pixel_put(mlx_ptr, mlx_wd, window_x, window_y, 0x0000FF);
+			else
+				mlx_pixel_put(mlx_ptr, mlx_wd, window_x, window_y, 0xFF0000);
+			z.r += distance_of_pixel;
+			window_x++;
+		}
+		window_x = 0;
+		window_y++;
+		z.r = -2;
+		z.i -= distance_of_pixel;
+	}
+}
+
 int main()
 {
-	t_complex	c;
+	//t_complex	c;
 	double		distance_of_pixel;
 	void		*mlx_ptr;
 	void		*mlx_wd;
@@ -60,7 +106,7 @@ int main()
 	mlx_ptr = mlx_init();
 	mlx_wd = mlx_new_window(mlx_ptr, 1000, 1000, "Fract-ol");
 	distance_of_pixel = (double) 4 / 1000;
-	c.r = -2;
+/*	c.r = -2;
 	c.i = 2;	
 	while(c.i >= -2)
 	{
@@ -74,9 +120,10 @@ int main()
 			window_x++;
 		}
 		window_x = 0;
+		window_y++;
 		c.r = -2;
 		c.i -= distance_of_pixel;
-		window_y++;
-	}
+		}*/
+	fractol_julia(mlx_ptr, mlx_wd, distance_of_pixel);
 	mlx_loop(mlx_ptr);
 }
