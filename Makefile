@@ -1,6 +1,8 @@
-NAME			= fractol
-SRCS			= fract-ol.c \
+SRCS			= fract-ol_set.c \
 				  fract-ol_utils.c \
+				  run_fractal.c \
+
+NAME			= fractol
 
 OBJS			= $(SRCS:.c=.o)
 CC				= cc
