@@ -1,5 +1,5 @@
 SRCS			= fract-ol_set.c \
-				  fract-ol_utils.c \
+				  fract-ol_math.c \
 				  run_fractal.c \
 
 NAME			= fractol

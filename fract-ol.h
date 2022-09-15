@@ -6,7 +6,7 @@
 /*   By: microdri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 16:53:10 by microdri          #+#    #+#             */
-/*   Updated: 2022/09/13 20:01:54 by microdri         ###   ########.fr       */
+/*   Updated: 2022/09/15 17:02:33 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <math.h>
+# define MAX_ITERATION 100
+# define SIZE_DISPLAY 1000
+
+typedef struct n_window
+{
+	int x;
+	int y;
+}	t_window;
 
 typedef struct n_complex
 {
@@ -24,13 +32,12 @@ typedef struct n_complex
 	double i;
 }	t_complex;
 
-int			get_iteration_mandelbrot(t_complex c, int max_iteration);
-int			get_iteration_julia(t_complex c, t_complex z, int max_iteration);
-void		fractol_mandelbrot(void *mlx_ptr, void *mlx_wd, int window_x, int window_y);
-void		fractol_julia(void *mlx_ptr, void *mlx_wd, int window_w, int window_y);
 double		value_absolute(t_complex z);
 t_complex	complex_add(t_complex s_a, t_complex s_b);
 t_complex	complex_pow(t_complex p);
-
+int			get_iteration_mandelbrot(t_complex c);
+int			get_iteration_julia(t_complex c, t_complex z);
+void		fractol_mandelbrot(void *mlx_ptr, void *mlx_wd, t_window window);
+void		fractol_julia(void *mlx_ptr, void *mlx_wd, t_window window);
 
 #endif

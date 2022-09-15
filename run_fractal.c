@@ -6,7 +6,7 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:31:25 by microdri          #+#    #+#             */
-/*   Updated: 2022/09/13 20:18:55 by microdri         ###   ########.fr       */
+/*   Updated: 2022/09/15 17:05:25 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,25 @@ int	main(int argc, char **argv)
 {
 	void	*mlx_ptr;
 	void	*mlx_wd;
-	int		window_x;
-	int		window_y;
+	t_window window;
 
-	window_x = 0;
-	window_y = 0;
+
+	window.x = 0;
+	window.y = 0;
 	mlx_ptr = mlx_init();
-	mlx_wd = mlx_new_window(mlx_ptr, 1000, 1000, "Fract-ol");
+	mlx_wd = mlx_new_window(mlx_ptr, SIZE_DISPLAY, SIZE_DISPLAY, "Fract-ol");
 	if (argc == 2)
 	{
-		if (strcmp(argv[1], "Mandelbrot"))
-			fractol_mandelbrot(mlx_ptr, mlx_wd, window_x, window_y);
-		if (strcmp(argv[1], "Julia"))
-			fractol_julia(mlx_ptr, mlx_wd, window_x, window_y);
+		if (strnstr(argv[1], "Mandelbrot", 10))
+		{
+			fractol_mandelbrot(mlx_ptr, mlx_wd, window);
+			puts("1");
+		}
+		if (strnstr(argv[1], "Julia", 5))
+		{
+			fractol_julia(mlx_ptr, mlx_wd, window);
+			puts("2");
+		}
 	}
 	else
 		write(1, "Ta errado ai os argumento mermaoooooooooo\n", 42);
