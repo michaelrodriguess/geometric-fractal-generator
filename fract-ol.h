@@ -6,7 +6,7 @@
 /*   By: microdri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 16:53:10 by microdri          #+#    #+#             */
-/*   Updated: 2022/09/15 17:02:33 by microdri         ###   ########.fr       */
+/*   Updated: 2022/09/19 19:27:21 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ int			get_iteration_mandelbrot(t_complex c);
 int			get_iteration_julia(t_complex c, t_complex z);
 void		fractol_mandelbrot(void *mlx_ptr, void *mlx_wd, t_window window);
 void		fractol_julia(void *mlx_ptr, void *mlx_wd, t_window window);
+int			get_colors(int number_of_iterations);
+int			check_number(int n);
+int			hsv_to_hex(int h, int s, int v);
 
 #endif
