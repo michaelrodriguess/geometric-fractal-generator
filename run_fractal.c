@@ -6,12 +6,13 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:31:25 by microdri          #+#    #+#             */
-/*   Updated: 2022/09/15 17:05:25 by microdri         ###   ########.fr       */
+/*   Updated: 2022/09/22 11:35:02 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract-ol.h"
 #include <string.h>
+#include <stdlib.h>
 
 int	main(int argc, char **argv)
 {
@@ -38,6 +39,10 @@ int	main(int argc, char **argv)
 		}
 	}
 	else
+	{
 		write(1, "Ta errado ai os argumento mermaoooooooooo\n", 42);
+		return 0;
+	}
+
 	mlx_loop(mlx_ptr);
 }

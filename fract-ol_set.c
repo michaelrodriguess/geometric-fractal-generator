@@ -6,7 +6,7 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:26:09 by microdri          #+#    #+#             */
-/*   Updated: 2022/09/19 19:46:55 by microdri         ###   ########.fr       */
+/*   Updated: 2022/09/22 11:23:49 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	fractol_mandelbrot(void *mlx_ptr, void *mlx_wd, t_window window)
 {
 	t_complex	c;
 	double		distance_of_pixel;
-
+	
 	c.r = -2;
 	c.i = 2;
 	distance_of_pixel = (double) 4 / SIZE_DISPLAY;
@@ -57,10 +57,10 @@ void	fractol_mandelbrot(void *mlx_ptr, void *mlx_wd, t_window window)
 	{
 		while (c.r <= 2)
 		{
-			if (get_iteration_mandelbrot(c) == 100)
-				mlx_pixel_put(mlx_ptr, mlx_wd, window.x, window.y, 0xFF0000);
+			if (get_iteration_mandelbrot(c) == MAX_ITERATION)
+				mlx_pixel_put(mlx_ptr, mlx_wd, window.x, window.y, 0x000000);
 			else
-				mlx_pixel_put(mlx_ptr, mlx_wd, window.x, window.y, 0x00FF00);
+				mlx_pixel_put(mlx_ptr, mlx_wd, window.x, window.y, get_colors(get_iteration_mandelbrot(c)));
 			c.r += distance_of_pixel;
 			window.x++;
 		}
@@ -86,7 +86,7 @@ void	fractol_julia(void	*mlx_ptr, void *mlx_wd, t_window window)
 	{
 		while (z.r <= 2)
 		{
-			if (get_iteration_julia(c, z) == 100)
+			if (get_iteration_julia(c, z) == MAX_ITERATION)
 				mlx_pixel_put(mlx_ptr, mlx_wd, window.x, window.y, 0xFF0000);
 			else
 				mlx_pixel_put(mlx_ptr, mlx_wd, window.x, window.y, 0x00FF00);

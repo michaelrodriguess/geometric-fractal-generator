@@ -6,7 +6,7 @@
 /*   By: microdri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 16:53:10 by microdri          #+#    #+#             */
-/*   Updated: 2022/09/19 19:27:21 by microdri         ###   ########.fr       */
+/*   Updated: 2022/09/22 11:23:20 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <math.h>
 # define MAX_ITERATION 100
-# define SIZE_DISPLAY 1000
+# define SIZE_DISPLAY 800 
 
 typedef struct n_window
 {
