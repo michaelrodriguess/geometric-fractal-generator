@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.c                                           :+:      :+:    :+:   */
+/*   fract-ol_colors.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 18:14:51 by microdri          #+#    #+#             */
-/*   Updated: 2022/09/19 19:46:47 by microdri         ###   ########.fr       */
+/*   Updated: 2022/09/26 18:46:13 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ int	get_colors(int number_of_iterations)
 		v = 1;
 	else
 		v = 0;	
-	color = hsv_to_hex(h, s, v);
-	return (color);
+	return(color = hsv_to_hex(h, s, v));
 }
 
 int	check_number(int n)
@@ -46,7 +45,7 @@ int	hsv_to_hex(int h, int s, int v)
 	max = 255 * v;
 	min = max * (1 - s);
 	z	= (max - min) * (1 - check_number((h / 60) % 2 - 1));
-	rgb	= 0;
+	rgb = 0;	
 	if (h >= 0 && h < 60)
 		rgb = max << 16 | (z + min) << 8 | min;
 	if (h >= 60 && h < 120)
@@ -62,3 +61,5 @@ int	hsv_to_hex(int h, int s, int v)
 	
 	return (rgb);		
 }
+
+

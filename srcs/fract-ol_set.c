@@ -6,7 +6,7 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:26:09 by microdri          #+#    #+#             */
-/*   Updated: 2022/09/22 11:23:49 by microdri         ###   ########.fr       */
+/*   Updated: 2022/09/23 18:42:30 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,9 @@ void	fractol_julia(void	*mlx_ptr, void *mlx_wd, t_window window)
 		while (z.r <= 2)
 		{
 			if (get_iteration_julia(c, z) == MAX_ITERATION)
-				mlx_pixel_put(mlx_ptr, mlx_wd, window.x, window.y, 0xFF0000);
+				mlx_pixel_put(mlx_ptr, mlx_wd, window.x, window.y, 0x00000);
 			else
-				mlx_pixel_put(mlx_ptr, mlx_wd, window.x, window.y, 0x00FF00);
+				mlx_pixel_put(mlx_ptr, mlx_wd, window.x, window.y, get_colors(get_iteration_julia(c, z)));
 			z.r += distance_of_pixel;
 			window.x++;
 		}

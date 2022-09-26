@@ -6,7 +6,7 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 09:03:12 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/25 09:14:02 by microdri         ###   ########.fr       */
+/*   Updated: 2022/09/26 19:32:43 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+double	ft_atof(const char *str);
 
 #endif

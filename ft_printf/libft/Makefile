@@ -50,25 +50,21 @@ RM			= rm -f
 CFLAGS		= -Wall -Wextra -Werror
 NAME		= libft.a
 LIBC		= ar -rcs
-PRINTF_PATH	= ./ft_printf 
 
 
 .c.o:
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I .
 
 $(NAME):	$(OBJS)	
-		make -C $(PRINTF_PATH)
 		$(LIBC) $(NAME) $(OBJS)
 
 all:	$(NAME)
 
 
 clean:
-		make clean -C $(PRINTF_PATH)
 		$(RM) $(OBJS) $(OBJSB)
 
 fclean:	clean
-		make fclean -C $(PRINTF_PATH)
 		$(RM) $(NAME)
 
 re:	fclean all
