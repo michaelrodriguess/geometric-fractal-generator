@@ -6,7 +6,7 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:26:09 by microdri          #+#    #+#             */
-/*   Updated: 2022/09/23 18:42:30 by microdri         ###   ########.fr       */
+/*   Updated: 2022/09/27 19:55:44 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	get_iteration_julia(t_complex c, t_complex z)
 	return (i);
 }
 
-void	fractol_mandelbrot(void *mlx_ptr, void *mlx_wd, t_window window)
+void	fractol_mandelbrot(t_data *img, t_window window)
 {
 	t_complex	c;
 	double		distance_of_pixel;
@@ -53,14 +53,14 @@ void	fractol_mandelbrot(void *mlx_ptr, void *mlx_wd, t_window window)
 	c.r = -2;
 	c.i = 2;
 	distance_of_pixel = (double) 4 / SIZE_DISPLAY;
-	while (c.i >= -2)
+	while (c.i >= -2 && window.y < SIZE_DISPLAY)
 	{
-		while (c.r <= 2)
+		while (c.r <= 2 && window.x < SIZE_DISPLAY)
 		{
 			if (get_iteration_mandelbrot(c) == MAX_ITERATION)
-				mlx_pixel_put(mlx_ptr, mlx_wd, window.x, window.y, 0x000000);
+				my_mlx_pixel_put(img, window.x, window.y, 0x000000);
 			else
-				mlx_pixel_put(mlx_ptr, mlx_wd, window.x, window.y, get_colors(get_iteration_mandelbrot(c)));
+				my_mlx_pixel_put(img, window.x, window.y, get_colors(get_iteration_mandelbrot(c)));
 			c.r += distance_of_pixel;
 			window.x++;
 		}
@@ -71,7 +71,7 @@ void	fractol_mandelbrot(void *mlx_ptr, void *mlx_wd, t_window window)
 	}
 }
 
-void	fractol_julia(void	*mlx_ptr, void *mlx_wd, t_window window)
+void	fractol_julia(t_data *img, t_window window)
 {
 	t_complex	c;
 	t_complex	z;
@@ -82,14 +82,14 @@ void	fractol_julia(void	*mlx_ptr, void *mlx_wd, t_window window)
 	z.r = -2;
 	z.i = 2;
 	distance_of_pixel = (double) 4 / SIZE_DISPLAY;
-	while (z.i >= -2)
+	while (z.i >= -2 && window.y < SIZE_DISPLAY)
 	{
-		while (z.r <= 2)
+		while (z.r <= 2 && window.x < SIZE_DISPLAY)
 		{
 			if (get_iteration_julia(c, z) == MAX_ITERATION)
-				mlx_pixel_put(mlx_ptr, mlx_wd, window.x, window.y, 0x00000);
+				my_mlx_pixel_put(img, window.x, window.y, 0x00000);
 			else
-				mlx_pixel_put(mlx_ptr, mlx_wd, window.x, window.y, get_colors(get_iteration_julia(c, z)));
+				my_mlx_pixel_put(img, window.x, window.y, get_colors(get_iteration_julia(c, z)));
 			z.r += distance_of_pixel;
 			window.x++;
 		}

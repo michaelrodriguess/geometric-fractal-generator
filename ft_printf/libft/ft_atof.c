@@ -6,12 +6,11 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:48:54 by microdri          #+#    #+#             */
-/*   Updated: 2022/09/26 19:50:28 by microdri         ###   ########.fr       */
+/*   Updated: 2022/09/27 19:13:08 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// Possivel implematacao da atof
 
 static int	ft_isspace(int c)
 {
@@ -21,32 +20,52 @@ static int	ft_isspace(int c)
 	return (0);
 }
 
-double	ft_atof(const char *str)
+static int	get_signal(char **str)
 {
-	double	number;
+	int signal;
+
+	signal = 1;
+	while (ft_isspace(**str))
+		(*str)++;
+	if (**str == '-' || **str == '+')
+	{
+		if (**str == '-')
+			signal = -1;
+		(*str)++;
+	}
+	return (signal);
+}
+
+static int	ft_atoi_mod(char **nptr)
+{
+	size_t		result_value;
+
+	result_value = 0;
+	while (isdigit(**nptr))
+	{
+		result_value = result_value * 10 + **nptr - '0';
+		(*nptr)++;
+	}
+	return (result_value);
+}
+
+double ft_atof(char *str)
+{
 	double	result;
 	int		signal;
-	int		index;
+	size_t	index;
 
-	number	= 0;
-	result	= 0;
-	signal	= 1;
-	index	= 0;
-	while (ft_isspace(str[index]))
+	index = 0;
+	result = 0;	
+	signal = get_signal(&str);
+	result = ft_atoi_mod(&str);
+	if (str[index] == '.')
 		index++;
-	if (str[index] == '-' || str[index] == '+')
+	while (isdigit(str[index]))
 	{
-		if (str[index] == '-')
-			signal = -1;
-		index+;
-	}
-	while (ft_isdigit(str[index]))
-	{
-		if (str[index] == ".")
-			index++;
-		result = result * 10 + str[index] - '0';
+		result = result + (str[index] - '0') / pow(10, index);
 		index++;
 	}
-	result (result * signal);
-}	
+	return (result * signal);
+}
 
