@@ -6,7 +6,7 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 18:14:51 by microdri          #+#    #+#             */
-/*   Updated: 2022/09/26 18:46:13 by microdri         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:11:05 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	get_colors(int number_of_iterations)
 	int v;
 	int color;
 
-	h = 255 * number_of_iterations / MAX_ITERATION;
+	h = 255 * number_of_iterations / (MAX_ITERATION / 2) - 1;
     s = 1;
 	if (number_of_iterations < MAX_ITERATION)
 		v = 1;
@@ -42,9 +42,9 @@ int	hsv_to_hex(int h, int s, int v)
 	int z;
 	int	rgb;
 
-	max = 255 * v;
+	max = 255 * (v + h);
 	min = max * (1 - s);
-	z	= (max - min) * (1 - check_number((h / 60) % 2 - 1));
+	z	= (max - min) * (1 - (check_number((h / 60) % 2 - 1)));
 	rgb = 0;	
 	if (h >= 0 && h < 60)
 		rgb = max << 16 | (z + min) << 8 | min;

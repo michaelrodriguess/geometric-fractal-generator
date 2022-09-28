@@ -6,7 +6,7 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:33:11 by microdri          #+#    #+#             */
-/*   Updated: 2022/09/27 12:01:03 by microdri         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:29:58 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ int message_error(int argc, char **argv, t_data *img, t_window window)
         ft_printf("%s\t%s\n", message_julia, julia_set);
         ft_printf("%s\n", examples_of_set_julia);
     }
+	else
+		return (0);
     return (1);
 }
