@@ -6,7 +6,7 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 09:03:12 by microdri          #+#    #+#             */
-/*   Updated: 2022/09/27 19:13:33 by microdri         ###   ########.fr       */
+/*   Updated: 2022/09/30 11:41:10 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <stdlib.h> 
 # include <unistd.h>
+# include <math.h>
 
 typedef struct s_list
 {

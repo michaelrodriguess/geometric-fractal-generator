@@ -6,7 +6,7 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:48:54 by microdri          #+#    #+#             */
-/*   Updated: 2022/09/27 19:13:08 by microdri         ###   ########.fr       */
+/*   Updated: 2022/09/30 11:40:26 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	ft_atoi_mod(char **nptr)
 	size_t		result_value;
 
 	result_value = 0;
-	while (isdigit(**nptr))
+	while (ft_isdigit(**nptr))
 	{
 		result_value = result_value * 10 + **nptr - '0';
 		(*nptr)++;
@@ -61,7 +61,7 @@ double ft_atof(char *str)
 	result = ft_atoi_mod(&str);
 	if (str[index] == '.')
 		index++;
-	while (isdigit(str[index]))
+	while (ft_isdigit(str[index]))
 	{
 		result = result + (str[index] - '0') / pow(10, index);
 		index++;

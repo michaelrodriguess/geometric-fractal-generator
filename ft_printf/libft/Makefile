@@ -19,6 +19,7 @@ SRCS	= ft_isalpha.c \
 		  ft_memcmp.c \
 		  ft_strnstr.c \
 		  ft_atoi.c \
+		  ft_atof.c \
 		  ft_calloc.c \
 		  ft_strdup.c \
 		  ft_substr.c \
@@ -53,7 +54,7 @@ LIBC		= ar -rcs
 
 
 .c.o:
-		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I .
+		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I -lm
 
 $(NAME):	$(OBJS)	
 		$(LIBC) $(NAME) $(OBJS)

@@ -16,7 +16,7 @@ LIB_MLX_PATH	= ./mlx
 PRINTF_PATH		= ./ft_printf
 LIBFT_PATH		= ./ft_printf/libft/libft.a
 
-$(NAME):
+$(NAME):	$(SRCS)
 		make -C $(LIB_MLX_PATH)
 		make -C $(PRINTF_PATH)
 		$(CC) $(CFLAGS) $(SRCS) $(FRAME_FLAGS) $(PRINTF_PATH)/libftprintf.a $(LIBFT_PATH) -o $(NAME)
