@@ -6,12 +6,12 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 20:01:46 by microdri          #+#    #+#             */
-/*   Updated: 2022/09/19 19:38:30 by microdri         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:21:18 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract-ol.h"
-
+/*
 double	value_absolute(t_complex z)
 {
 	double result_value_absolute;
@@ -40,4 +40,4 @@ t_complex	complex_pow(t_complex p)
 
 	return(result_p);	
 }
-
+*/

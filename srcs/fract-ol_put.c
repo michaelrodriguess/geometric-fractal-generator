@@ -6,7 +6,7 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:39:49 by microdri          #+#    #+#             */
-/*   Updated: 2022/10/04 19:11:31 by microdri         ###   ########.fr       */
+/*   Updated: 2022/10/11 17:11:33 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,53 +20,21 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void	select_fractol(char **argv, t_data img)
+void	select_fractol(t_data *data)
 {
 	t_complex	c;
 
-	if (ft_strnstr(argv[1], "mandelbrot", 10))
-		fractol_mandelbrot(&img);
+	if (ft_strnstr(data->argv[1], "mandelbrot", 10) && data->argc == 2)
+		fractol_mandelbrot(data);
+	else if (ft_strnstr(data->argv[1], "julia", 5) && data->argc == 4)
+	{
+		verify_arguments(data->argv[2]);
+		verify_arguments(data->argv[3]);
+		c.r = ft_atof(data->argv[2]);
+		c.i = ft_atof(data->argv[3]);
+		fractol_julia(data, c);
+	}
 	else
-	{
-		c.r = ft_atof(argv[2]);
-		c.i = ft_atof(argv[3]);
-		fractol_julia(&img, c);
-	}	
-}
-
-int close_window(t_data *data)
-{
-	mlx_destroy_window(data->mlx_ptr, data->mlx_wd);
-	exit (0);
-	return (0);
-}
-
-int	key_hook(int keycode, t_data *data)
-{
-	if (keycode == 53)
-		close_window(data);
-	return (0);
-}
-
-int	mouse_hook(int button, int x, int y, t_data *img)
-{
-	x = 0;
-	y = 0;
-
-	if (button == 4 )
-	{
-		ft_printf("zoom in\n");
-		img->zoom += 0.5;
-	}
-	else if (button == 5)
-	{
-		ft_printf("zoom out\n");
-		img->zoom -= 0.5;
-	}
-	mlx_clear_window(img->mlx_ptr, img->mlx_wd);
-	fractol_mandelbrot(img);
-	mlx_put_image_to_window(img->mlx_ptr, img->mlx_wd, img->img, 0, 0);
-
-	return (0);
+		set_error();	
 }
 

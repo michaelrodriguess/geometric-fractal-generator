@@ -6,7 +6,7 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:33:11 by microdri          #+#    #+#             */
-/*   Updated: 2022/10/04 12:22:55 by microdri         ###   ########.fr       */
+/*   Updated: 2022/10/11 16:20:01 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,38 @@ void	set_error(void)
 	exit(0);
 }
 
-void verify_line_command(int argc, char **argv) 
+void verify_line_command(t_data *data) 
 {
 	int size;
 
-	size = ft_strlen(argv[1]);
-	if (argc < 2)
+	size = ft_strlen(data->argv[1]);
+	if (data->argc < 2 || data->argc == 3 || data->argc >= 5)
 		set_error();
-	if (ft_strnstr(argv[1], "julia", 5) && size != 5)
+	if (ft_strnstr(data->argv[1], "mandelbrot", 10) && size != 10)
 		set_error();
-	if (ft_strnstr(argv[1], "mandelbrot", 10) && size != 10)
+	if (ft_strnstr(data->argv[1], "julia", 5) && size != 5)
 		set_error();
-	if (!ft_strnstr(argv[1], "mandelbrot", 10) && !ft_strnstr(argv[1], "julia", 5))
+	if (!ft_strnstr(data->argv[1], "mandelbrot", 10) && !ft_strnstr(data->argv[1], "julia", 5))
 		set_error(); 
-	if (argc < 4 && !ft_strnstr(argv[1], "mandelbrot", 10))
+	if (data->argc < 4 && !ft_strnstr(data->argv[1], "mandelbrot", 10))
 		set_error();
 }
 
+void verify_arguments(char *data)
+{
+	int index;
+	int dot;
+
+	index = 0;
+	dot = 0;
+	while (data[index] != '\0')
+	{	
+		if (data[index] == '.')
+			dot++;
+		else if (data[index] < '0' || data[index] > '9')
+			set_error();		
+		index++;
+	}
+	if (dot > 1)
+		set_error();
+}
