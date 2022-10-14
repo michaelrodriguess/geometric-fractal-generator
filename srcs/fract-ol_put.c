@@ -6,7 +6,7 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:39:49 by microdri          #+#    #+#             */
-/*   Updated: 2022/10/11 17:11:33 by microdri         ###   ########.fr       */
+/*   Updated: 2022/10/13 20:36:17 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	char	*dst;
 
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }
 
 void	select_fractol(t_data *data)
@@ -35,6 +35,5 @@ void	select_fractol(t_data *data)
 		fractol_julia(data, c);
 	}
 	else
-		set_error();	
+		set_error();
 }
-

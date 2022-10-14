@@ -6,13 +6,12 @@
 /*   By: microdri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 16:53:10 by microdri          #+#    #+#             */
-/*   Updated: 2022/10/11 19:49:07 by microdri         ###   ########.fr       */
+/*   Updated: 2022/10/13 19:51:17 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-
 # include "../mlx/mlx.h"
 # include "../ft_printf/ft_printf.h"
 # include <stdio.h>
@@ -21,7 +20,8 @@
 # define MAX_ITERATION 100
 # define SIZE_DISPLAY 800
 
-typedef struct	s_data {
+typedef struct	s_data
+{
 	void	*mlx_ptr;
 	void	*mlx_wd;
 	void	*img;
