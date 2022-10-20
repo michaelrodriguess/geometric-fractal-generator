@@ -6,11 +6,11 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:33:11 by microdri          #+#    #+#             */
-/*   Updated: 2022/10/13 18:53:41 by microdri         ###   ########.fr       */
+/*   Updated: 2022/10/14 19:10:45 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 void	message_error(void)
 {
@@ -42,8 +42,6 @@ void	verify_line_command(t_data *data)
 	int	size;
 
 	size = ft_strlen(data->argv[1]);
-	if (data->argc < 2 || data->argc == 3 || data->argc >= 5)
-		set_error();
 	if (ft_strnstr(data->argv[1], "mandelbrot", 10) && size != 10)
 		set_error();
 	if (ft_strnstr(data->argv[1], "julia", 5) && size != 5)

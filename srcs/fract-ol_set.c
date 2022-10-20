@@ -6,13 +6,13 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:26:09 by microdri          #+#    #+#             */
-/*   Updated: 2022/10/13 20:42:25 by microdri         ###   ########.fr       */
+/*   Updated: 2022/10/14 18:59:07 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
-int	get_iteration_mandelbrot(t_complex c)
+int	iter_mandel(t_complex c)
 {
 	t_complex	temp;
 	t_complex	z;
@@ -35,7 +35,7 @@ int	get_iteration_mandelbrot(t_complex c)
 	return (i);
 }
 
-int	get_iteration_julia(t_complex c, t_complex z)
+int	iter_julia(t_complex c, t_complex z)
 {
 	t_complex	temp;
 	int			i;
@@ -67,10 +67,10 @@ void	fractol_mandelbrot(t_data *data)
 	{
 		while (c.r <= data->max_r * data->zoom && data->x < SIZE_DISPLAY)
 		{
-			if (get_iteration_mandelbrot(c) == MAX_ITERATION)
-				my_mlx_pixel_put(data, data->x, data->y, 0x000000);
+			if (iter_mandel(c) == MAX_ITERATION)
+				my_pixel_put(data, data->x, data->y, 0x000000);
 			else
-				my_mlx_pixel_put(data, data->x, data->y, get_colors(get_iteration_mandelbrot(c)));
+				my_pixel_put(data, data->x, data->y, colors(iter_mandel(c)));
 			c.r += data->distance_of_pixel;
 			data->x++;
 		}
@@ -96,10 +96,10 @@ void	fractol_julia(t_data *data, t_complex c)
 	{
 		while (z.r <= data->max_r * data->zoom && data->x < SIZE_DISPLAY)
 		{
-			if (get_iteration_julia(c, z) == MAX_ITERATION)
-				my_mlx_pixel_put(data, data->x, data->y, 0x000000);
+			if (iter_julia(c, z) == MAX_ITERATION)
+				my_pixel_put(data, data->x, data->y, 0x000000);
 			else
-				my_mlx_pixel_put(data, data->x, data->y, get_colors(get_iteration_julia(c, z)));
+				my_pixel_put(data, data->x, data->y, colors(iter_julia(c, z)));
 			z.r += data->distance_of_pixel;
 			data->x++;
 		}

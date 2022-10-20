@@ -6,13 +6,13 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:39:49 by microdri          #+#    #+#             */
-/*   Updated: 2022/10/13 20:36:17 by microdri         ###   ########.fr       */
+/*   Updated: 2022/10/14 19:11:51 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	my_pixel_put(t_data *data, int x, int y, int color)
 {
 	char	*dst;
 

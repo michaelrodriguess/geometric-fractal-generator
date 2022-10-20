@@ -6,7 +6,7 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:48:54 by microdri          #+#    #+#             */
-/*   Updated: 2022/10/11 16:07:37 by microdri         ###   ########.fr       */
+/*   Updated: 2022/10/14 18:53:18 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_isspace(int c)
 
 static int	get_signal(char **str)
 {
-	int signal;
+	int	signal;
 
 	signal = 1;
 	while (ft_isspace(**str))
@@ -49,14 +49,14 @@ static int	ft_atoi_mod(char **nptr)
 	return (result_value);
 }
 
-double ft_atof(char *str)
+double	ft_atof(char *str)
 {
 	double	result;
 	int		signal;
 	size_t	index;
 
 	index = 0;
-	result = 0;	
+	result = 0;
 	signal = get_signal(&str);
 	result = ft_atoi_mod(&str);
 	if (str[index] == '.')
@@ -68,4 +68,3 @@ double ft_atof(char *str)
 	}
 	return (result * signal);
 }
-

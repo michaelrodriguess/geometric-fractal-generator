@@ -6,11 +6,11 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:31:06 by microdri          #+#    #+#             */
-/*   Updated: 2022/10/13 20:07:39 by microdri         ###   ########.fr       */
+/*   Updated: 2022/10/14 18:58:27 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 int	close_window(t_data *data)
 {

@@ -6,13 +6,13 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 18:14:51 by microdri          #+#    #+#             */
-/*   Updated: 2022/10/13 18:45:39 by microdri         ###   ########.fr       */
+/*   Updated: 2022/10/14 18:58:09 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
-int	get_colors(int number_of_iterations)
+int	colors(int number_of_iterations)
 {
 	int	h;
 	int	s;
