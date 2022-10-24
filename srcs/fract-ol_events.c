@@ -6,7 +6,7 @@
 /*   By: microdri <microdri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:31:06 by microdri          #+#    #+#             */
-/*   Updated: 2022/10/14 18:58:27 by microdri         ###   ########.fr       */
+/*   Updated: 2022/10/20 16:58:01 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,23 @@ int	key_hook(int keycode, t_data *data)
 		close_window(data);
 	if (keycode == 123)
 	{
-		data->max_r -= 0.8;
-		data->min_r -= 0.8;
+		data->max_r -= 0.3;
+		data->min_r -= 0.3;
 	}
 	else if (keycode == 124)
 	{
-		data->max_r += 0.8;
-		data->min_r += 0.8;
+		data->max_r += 0.3;
+		data->min_r += 0.3;
 	}
 	else if (keycode == 125)
 	{
-		data->max_i -= 0.8;
-		data->min_i -= 0.8;
+		data->max_i -= 0.3;
+		data->min_i -= 0.3;
 	}
 	else if (keycode == 126)
 	{
-		data->max_i += 0.8;
-		data->min_i += 0.8;
+		data->max_i += 0.3;
+		data->min_i += 0.3;
 	}
 	select_fractol(data);
 	return (0);
@@ -54,12 +54,11 @@ int	mouse_func(int button, int x, int y, t_data *data)
 	if (button == 4)
 	{
 		data->zoom *= 1.1;
-		select_fractol(data);
 	}
 	if (button == 5)
 	{
 		data->zoom *= 0.9;
-		select_fractol(data);
 	}
+	select_fractol(data);
 	return (0);
 }

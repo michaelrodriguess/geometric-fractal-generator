@@ -6,7 +6,7 @@
 /*   By: microdri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 16:53:10 by microdri          #+#    #+#             */
-/*   Updated: 2022/10/20 11:17:32 by microdri         ###   ########.fr       */
+/*   Updated: 2022/10/24 11:20:03 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 
 # include "../mlx/mlx.h"
 # include "../ft_printf/ft_printf.h"
-# include <stdio.h>
 # include <unistd.h>
 # include <math.h>
-# define MAX_ITERATION 100
+# define MAX_ITERATION 250
 # define SIZE_DISPLAY 800
 
 typedef struct s_data
