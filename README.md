@@ -1,4 +1,4 @@
-# Fract-ol Project 42
+<h1 align="center">Geometric Fractal Generator</h1>
 
 
 ### This project is about creating fractals using a Graphics Library.
