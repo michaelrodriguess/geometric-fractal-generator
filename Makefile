@@ -11,7 +11,15 @@ OBJS			= $(SRCS:.c=.o)
 CC				= cc
 RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror -Ofast
-FRAME_FLAGS		= -L mlx -lmlx -framework OpenGL -framework AppKit -I ./includes
+
+UNAME := $(shell uname)
+
+ifeq ($(UNAME), Darwin)
+	FRAME_FLAGS = -L mlx -lmlx -framework OpenGL -framework AppKit -lm -I ./includes
+else
+	FRAME_FLAGS = -L mlx -lmlx -lXext -lX11 -lm -lz -I ./includes
+endif
+
 LIB_MLX_PATH	= ./mlx
 PRINTF_PATH		= ./ft_printf
 LIBFT_PATH		= ./ft_printf/libft/libft.a
@@ -19,7 +27,7 @@ LIBFT_PATH		= ./ft_printf/libft/libft.a
 $(NAME):	$(SRCS)
 		make -C $(LIB_MLX_PATH)
 		make -C $(PRINTF_PATH)
-		$(CC) $(CFLAGS) $(SRCS) $(FRAME_FLAGS) $(PRINTF_PATH)/libftprintf.a $(LIBFT_PATH) -o $(NAME)
+		$(CC) $(CFLAGS) $(SRCS) $(FRAME_FLAGS) $(PRINTF_PATH)/libftprintf.a $(LIBFT_PATH) -lm -o $(NAME)
 
 all: $(NAME)
 

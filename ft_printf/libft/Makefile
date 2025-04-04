@@ -54,10 +54,11 @@ LIBC		= ar -rcs
 
 
 .c.o:
-		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I -lm
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I -lm
+
 
 $(NAME):	$(OBJS)	
-		$(LIBC) $(NAME) $(OBJS)
+		$(LIBC) $(NAME) $(OBJS) -lm
 
 all:	$(NAME)
 
